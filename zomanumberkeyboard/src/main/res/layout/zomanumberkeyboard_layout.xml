@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/constrint"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_5sdp"
+     >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/row_1"
+    style="@style/constraint_layout"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/row_2">
+    <Button
+        android:id="@+id/key_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toStartOf="@+id/key_2"
+        android:text="@string/key_1"
+        style="@style/MaterialButton"
+        />
+    <Button
+        android:id="@+id/key_2"
+        android:text="@string/key_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/key_1"
+         app:layout_constraintEnd_toStartOf="@+id/key_3"
+        style="@style/MaterialButton"
+        android:background="@drawable/bu_back"
+        />
+    <Button
+        android:id="@+id/key_3"
+        android:text="@string/key_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/key_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/MaterialButton"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/row_2"
+        style="@style/constraint_layout"
+        app:layout_constraintTop_toBottomOf="@id/row_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/row_3"
+        >
+        <Button
+            android:id="@+id/key_4"
+             android:text="@string/key_4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/key_5"
+            style="@style/MaterialButton"
+
+            />
+        <Button
+            android:id="@+id/key_5"
+             android:text="@string/key_5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/key_4"
+            app:layout_constraintEnd_toStartOf="@+id/key_6"
+            style="@style/MaterialButton"
+
+            />
+        <Button
+            android:id="@+id/key_6"
+             android:text="@string/key_6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/key_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/MaterialButton"
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/row_3"
+        style="@style/constraint_layout"
+        app:layout_constraintTop_toBottomOf="@id/row_2"
+        app:layout_constraintBottom_toTopOf="@id/row_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <Button
+            android:id="@+id/key_7"
+             android:text="@string/key_7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/key_8"
+            style="@style/MaterialButton"
+
+            />
+        <Button
+            android:id="@+id/key_8"
+             android:text="@string/key_8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/key_7"
+            app:layout_constraintEnd_toStartOf="@+id/key_9"
+            style="@style/MaterialButton"
+
+            />
+        <Button
+            android:id="@+id/key_9"
+             android:text="@string/key_9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/key_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/MaterialButton"
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/row_4"
+        style="@style/constraint_layout"
+        app:layout_constraintTop_toBottomOf="@id/row_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <Button
+            android:id="@+id/key_comma"
+             android:text="@string/key_comma"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/key_0"
+            style="@style/MaterialButton"
+
+            />
+        <Button
+            android:id="@+id/key_0"
+             android:text="@string/key_0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/key_comma"
+            app:layout_constraintEnd_toStartOf="@+id/clear"
+            style="@style/MaterialButton"
+
+            />
+        <Button
+            android:id="@+id/clear"
+             android:text="@string/key_clear"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/key_0"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/MaterialButton"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</merge>
