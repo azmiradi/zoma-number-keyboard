@@ -5,21 +5,23 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
-import android.os.Build;
+import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+
 import java.util.ArrayList;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.Dimension;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 
 public class ZomaNumberKeyBoard extends ConstraintLayout {
@@ -29,22 +31,28 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
     private int keyHeight = 0;
     @Dimension
     private int keyPadding = 0;
-    @DrawableRes
+    @ColorRes
     private int numberKeyBackground = 0;
     @ColorRes
-    private int numberKeyBackgroundTint= 0;
+    private int numberKeyBackgroundRipple = 0;
+    @ColorRes
+    private int keyBoardBackground = 0;
+    @DrawableRes
+    private int numberKeyShapeDrawable = 0;
     @ColorRes
     private int numberKeyTextColor = 0;
     @Dimension
     private int numberKeyTextSize = 0;
-     private final static int DEFAULT_KEY_WIDTH_DP = 0;
+    private final static int DEFAULT_KEY_WIDTH_DP = 0;
     private final static int DEFAULT_KEY_HEIGHT_DP = 0;
     private final static int DEFAULT_KEY_PADDING_DP = 16;
     private final static int DEFAULT_KEY_TEXT_SIZE_SP = 50;
-
+    public  final static int CUSTOM_SHAPE=R.drawable.custom_shape;
+    public  final static int NORMAL_SHAPE=R.drawable.normal_shape;
+    ConstraintLayout keyBoardBackGround;
     ArrayList<Button> numericKeys;
 
-     public ZomaNumberKeyBoard(@NonNull Context context) {
+    public ZomaNumberKeyBoard(@NonNull Context context) {
         super(context);
         inflateView(null);
     }
@@ -90,7 +98,9 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         }
         requestLayout();
     }
-
+    public void setKeyBoardBackGround(@ColorRes int color){
+        keyBoardBackGround.setBackgroundColor(ContextCompat.getColor(getContext(), color));
+    }
     public void setKeyPadding(int spd) {
         for (int i = 0; i < numericKeys.size(); i++) {
             Button key = numericKeys.get(i);
@@ -98,11 +108,10 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         }
     }
 
-    @SuppressLint("ResourceAsColor")
-    public void setNumberKeyTextColor(@ColorRes int color) {
+     public void setNumberKeyTextColor(@ColorRes int color) {
         for (int i = 0; i < numericKeys.size(); i++) {
             Button key = numericKeys.get(i);
-            key.setTextColor(color);
+            key.setTextColor(ContextCompat.getColor(getContext(), color));
         }
     }
 
@@ -112,25 +121,19 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
             key.setTextSize(size);
         }
     }
-     public void setNumberKeyBackground(@DrawableRes int drawable) {
+
+
+
+    public void setNumberKeyBackgroundColors(@ColorRes int colorPressed,
+                                             @ColorRes int backGroundColor,
+                                             @DrawableRes int shapeBackGround) {
         for (int i = 0; i < numericKeys.size(); i++) {
             Button key = numericKeys.get(i);
-            key.setBackgroundResource(drawable);
+            setColorsBackGround(key,ContextCompat.getColor(getContext(), colorPressed)
+                    ,ContextCompat.getColor(getContext(), backGroundColor),shapeBackGround);
         }
     }
-     @SuppressLint("ResourceAsColor")
-     public void setNumberKeyBackgroundTint(@ColorRes int color) {
-        for (int i = 0; i < numericKeys.size(); i++) {
-            Button key = numericKeys.get(i);
-            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP && key
-                    instanceof AppCompatButton) {
-                key.setBackgroundTintList(ColorStateList.valueOf(getContext().getResources()
-                        .getColor(color)));
-            } else {
-                ViewCompat.setBackgroundTintList(key, ColorStateList.valueOf(color));
-            }
-        }
-    }
+
 
     public void setNumberKeyTypeface(Typeface typeface) {
         for (int i = 0; i < numericKeys.size(); i++) {
@@ -139,35 +142,45 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         }
     }
 
-     private void inflateView(AttributeSet attrs) {
+    private void inflateView(AttributeSet attrs) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.ZomaNumberKeyboard, 0, 0);
         try {
-        keyWidth = typedArray.getLayoutDimension(R.styleable.ZomaNumberKeyboard_numberkeyboard_keyWidth, DEFAULT_KEY_WIDTH_DP);
-        keyHeight = typedArray.getLayoutDimension(R.styleable.ZomaNumberKeyboard_numberkeyboard_keyHeight, DEFAULT_KEY_HEIGHT_DP);
-        // Get key padding
-        keyPadding = typedArray.getDimensionPixelSize(
-                R.styleable.ZomaNumberKeyboard_numberkeyboard_keyPadding,
-                dpToPx());
-        // Get number key background
-        numberKeyBackground = typedArray.getResourceId(
-                R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyBackground,
-                R.drawable.bu_back);
-        // Get number key text color
-        numberKeyTextColor = typedArray.getResourceId(
-                R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyTextColor,
-                R.color.black);
-        numberKeyTextSize = typedArray.getResourceId(
-                R.styleable.ZomaNumberKeyboard_numberkeyboard_keyTextSize,
-                DEFAULT_KEY_TEXT_SIZE_SP);
-       numberKeyBackgroundTint = typedArray.getResourceId(
-                    R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyBackgroundTint,
-                    R.color.white);
+            keyWidth = typedArray.getLayoutDimension(R.styleable.ZomaNumberKeyboard_numberkeyboard_keyWidth, DEFAULT_KEY_WIDTH_DP);
+            keyHeight = typedArray.getLayoutDimension(R.styleable.ZomaNumberKeyboard_numberkeyboard_keyHeight, DEFAULT_KEY_HEIGHT_DP);
+            // Get key padding
+            keyPadding = typedArray.getDimensionPixelSize(
+                    R.styleable.ZomaNumberKeyboard_numberkeyboard_keyPadding,
+                    dpToPx());
+            // Get number key text color
+            numberKeyTextColor = typedArray.getResourceId(
+                    R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyTextColor,
+                    R.color.black);
+            numberKeyTextSize = typedArray.getResourceId(
+                    R.styleable.ZomaNumberKeyboard_numberkeyboard_keyTextSize,
+                    DEFAULT_KEY_TEXT_SIZE_SP);
+            //
 
-          } finally {
+            numberKeyBackground = typedArray.getResourceId(
+                    R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyBackground,
+                    R.color.teal_200);
+            //
+            numberKeyBackgroundRipple = typedArray.getResourceId(
+                    R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyRippleColor,
+                    R.color.gray);
+            //
+            keyBoardBackground = typedArray.getResourceId(
+                    R.styleable.ZomaNumberKeyboard_keyboard_background,
+                    R.color.white);
+            numberKeyShapeDrawable = typedArray.getResourceId(
+                    R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyShapeDrawable,
+                    R.drawable.custom_shape);
+        } finally {
             typedArray.recycle();
         }
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         View view = View.inflate(getContext(), R.layout.zomanumberkeyboard_layout, this);
+        keyBoardBackGround=view.findViewById(R.id.constrint);
         // Get numeric keys
         numericKeys = new ArrayList<>(12);
         numericKeys.add(view.findViewById(R.id.key_0));
@@ -199,8 +212,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
                             return false;
                         }
                 );
-            }
-            else if (val == 11)
+            } else if (val == 11)
                 key.setOnClickListener(v -> zomaNumberKeyBoardListener.onCommaClicked());
             else
                 key.setOnClickListener(v -> zomaNumberKeyBoardListener.onNumberClicked(val));
@@ -211,13 +223,44 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) ZomaNumberKeyBoard.DEFAULT_KEY_PADDING_DP, getContext().getResources().getDisplayMetrics());
     }
 
-     private void setStyles() {
+    private void setStyles() {
         setKeyWidth(keyWidth);
         setKeyHeight(keyHeight);
         setKeyPadding(keyPadding);
-        setNumberKeyBackground(numberKeyBackground);
         setNumberKeyTextColor(numberKeyTextColor);
-        setNumberKeyTextSize(numberKeyTextSize);
-        setNumberKeyBackgroundTint(numberKeyBackgroundTint);
+         setNumberKeyTextSize(numberKeyTextSize);
+        setKeyBoardBackGround(keyBoardBackground);
+        setNumberKeyBackgroundColors(numberKeyBackgroundRipple,numberKeyBackground,numberKeyShapeDrawable);
     }
+
+
+    private void setColorsBackGround(Button myButton,int colorPressed,int backGroundColor,int shapeBackGround) {
+        myButton.setBackgroundResource(shapeBackGround);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+             ColorStateList colorStateListRipple = new ColorStateList(
+                    new int[][]{{0}},
+                    new int[]{colorPressed} // ripple color
+            );
+
+            RippleDrawable rippleDrawable = (RippleDrawable) myButton.getBackground();
+            rippleDrawable.setColor(colorStateListRipple);
+            myButton.setBackground(rippleDrawable); // applying the ripple color
+        }
+
+        ColorStateList colorStateList = new ColorStateList(
+                new int[][]{
+                        new int[]{android.R.attr.state_pressed}, // when pressed
+                        new int[]{android.R.attr.state_enabled}, // normal state color
+                        new int[]{} // normal state color
+                },
+                new int[]{
+                        colorPressed, // when pressed
+                        backGroundColor, // normal state color
+                        backGroundColor // normal state color
+                }
+        );
+
+        ViewCompat.setBackgroundTintList(myButton, colorStateList);
+    }
+
 }

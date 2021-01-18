@@ -1,9 +1,11 @@
 package azmi.radi.com.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import azmi.radi.com.keyboard.ZomaNumberKeyBoard;
 import azmi.radi.com.keyboard.ZomaNumberKeyBoardListener;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
@@ -16,7 +18,7 @@ public class ZomaKeyBoard extends AppCompatActivity {
         setContentView(R.layout.activity_zoma_key_board);
         EditText editText=findViewById(R.id.edit);
         ZomaNumberKeyBoard zomaNumberKeyBoard =findViewById(R.id.ZomaKeyBoard);
-        zomaNumberKeyBoard.setOnListener(new ZomaNumberKeyBoardListener() {
+         zomaNumberKeyBoard.setOnListener(new ZomaNumberKeyBoardListener() {
             @Override
             public void onNumberClicked(int value) {
                 editText.append(String.valueOf(value));
@@ -42,5 +44,6 @@ public class ZomaKeyBoard extends AppCompatActivity {
                 editText.setText("");
             }
         });
+
     }
 }
