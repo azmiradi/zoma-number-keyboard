@@ -3,12 +3,14 @@ package azmi.radi.com.keyboard;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -19,17 +21,19 @@ import androidx.annotation.Dimension;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 
 public class ZomaNumberKeyBoard extends ConstraintLayout {
-    @Dimension
+    @Px
     private int keyWidth = 0;
-    @Dimension
+    @Px
     private int keyHeight = 0;
-    @Dimension
+    @Px
     private int keyPadding = 0;
     @ColorRes
     private int numberKeyBackground = 0;
@@ -41,12 +45,12 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
     private int numberKeyShapeDrawable = 0;
     @ColorRes
     private int numberKeyTextColor = 0;
-    @Dimension
+    @Px
     private int numberKeyTextSize = 0;
-    private final static int DEFAULT_KEY_WIDTH_DP = 0;
-    private final static int DEFAULT_KEY_HEIGHT_DP = 0;
+    private final static int DEFAULT_KEY_WIDTH_DP = -1;
+    private final static int DEFAULT_KEY_HEIGHT_DP = -1;
     private final static int DEFAULT_KEY_PADDING_DP = 16;
-    private final static int DEFAULT_KEY_TEXT_SIZE_SP = 50;
+    private final static int DEFAULT_KEY_TEXT_SIZE_SP = 15;
     public  final static int CUSTOM_SHAPE=R.drawable.custom_shape;
     public  final static int NORMAL_SHAPE=R.drawable.normal_shape;
     ConstraintLayout keyBoardBackGround;
@@ -81,23 +85,32 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         setupListeners(zomaNumberKeyBoardListener);
     }
 
-    public void setKeyHeight(int spd) {
-        if (spd == DEFAULT_KEY_HEIGHT_DP) return;
+    public void setKeyWidth(int px) {
+        if (px == DEFAULT_KEY_WIDTH_DP) return;
         for (int i = 0; i < numericKeys.size(); i++) {
-            Button key = numericKeys.get(i);
-            key.setHeight(spd);
+            Button key=numericKeys.get(i);
+            key.getLayoutParams().width = px;
         }
         requestLayout();
     }
 
-    public void setKeyWidth(int spd) {
-        if (spd == DEFAULT_KEY_WIDTH_DP) return;
+    /**
+     * Sets key height in px.
+     */
+    public void setKeyHeight(int px) {
+        if (px == DEFAULT_KEY_HEIGHT_DP) return;
         for (int i = 0; i < numericKeys.size(); i++) {
-            Button key = numericKeys.get(i);
-            key.setWidth(spd);
+            Button key=numericKeys.get(i);
+            key.getLayoutParams().height = px;
         }
         requestLayout();
     }
+
+
+
+
+
+
     public void setKeyBoardBackGround(@ColorRes int color){
         keyBoardBackGround.setBackgroundColor(ContextCompat.getColor(getContext(), color));
     }
@@ -115,7 +128,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         }
     }
 
-    public void setNumberKeyTextSize(@Dimension int size) {
+    public void setNumberKeyTextSize(@Px int size) {
         for (int i = 0; i < numericKeys.size(); i++) {
             Button key = numericKeys.get(i);
             key.setTextSize(size);
@@ -144,21 +157,23 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
 
     private void inflateView(AttributeSet attrs) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.ZomaNumberKeyboard, 0, 0);
+        TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs,
+                R.styleable.ZomaNumberKeyboard,
+                0, 0);
         try {
             keyWidth = typedArray.getLayoutDimension(R.styleable.ZomaNumberKeyboard_numberkeyboard_keyWidth, DEFAULT_KEY_WIDTH_DP);
             keyHeight = typedArray.getLayoutDimension(R.styleable.ZomaNumberKeyboard_numberkeyboard_keyHeight, DEFAULT_KEY_HEIGHT_DP);
             // Get key padding
             keyPadding = typedArray.getDimensionPixelSize(
                     R.styleable.ZomaNumberKeyboard_numberkeyboard_keyPadding,
-                    dpToPx());
+                    dpToPx(DEFAULT_KEY_PADDING_DP));
             // Get number key text color
             numberKeyTextColor = typedArray.getResourceId(
                     R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyTextColor,
                     R.color.black);
-            numberKeyTextSize = typedArray.getResourceId(
+            numberKeyTextSize = typedArray.getDimensionPixelSize(
                     R.styleable.ZomaNumberKeyboard_numberkeyboard_keyTextSize,
-                    DEFAULT_KEY_TEXT_SIZE_SP);
+                    dpToPx(DEFAULT_KEY_TEXT_SIZE_SP));
             //
 
             numberKeyBackground = typedArray.getResourceId(
@@ -175,6 +190,8 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
             numberKeyShapeDrawable = typedArray.getResourceId(
                     R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyShapeDrawable,
                     R.drawable.custom_shape);
+
+
         } finally {
             typedArray.recycle();
         }
@@ -219,8 +236,8 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         }
     }
 
-    private int dpToPx() {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) ZomaNumberKeyBoard.DEFAULT_KEY_PADDING_DP, getContext().getResources().getDisplayMetrics());
+    private int dpToPx(int px) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) px, getContext().getResources().getDisplayMetrics());
     }
 
     private void setStyles() {
@@ -228,9 +245,10 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         setKeyHeight(keyHeight);
         setKeyPadding(keyPadding);
         setNumberKeyTextColor(numberKeyTextColor);
-         setNumberKeyTextSize(numberKeyTextSize);
+        setNumberKeyTextSize(numberKeyTextSize);
         setKeyBoardBackGround(keyBoardBackground);
-        setNumberKeyBackgroundColors(numberKeyBackgroundRipple,numberKeyBackground,numberKeyShapeDrawable);
+         setNumberKeyBackgroundColors(numberKeyBackgroundRipple,
+                numberKeyBackground,numberKeyShapeDrawable);
     }
 
 

@@ -3,168 +3,208 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     >
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/constrint"
-    android:layout_marginTop="@dimen/_5sdp"
-    android:layout_marginBottom="@dimen/_5sdp"
-     >
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/row_1"
-    style="@style/constraint_layout"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toTopOf="@+id/row_2">
-    <Button
-        android:id="@+id/key_1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintEnd_toStartOf="@+id/key_2"
-        android:text="@string/key_1"
-        style="@style/MaterialButton"
-        />
-    <Button
-        android:id="@+id/key_2"
-        android:text="@string/key_2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/key_1"
-         app:layout_constraintEnd_toStartOf="@+id/key_3"
-        style="@style/MaterialButton"
-        android:background="@drawable/custom_shape"
-        />
-    <Button
-        android:id="@+id/key_3"
-        android:text="@string/key_3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/key_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        style="@style/MaterialButton"
 
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/row_2"
-        style="@style/constraint_layout"
-        app:layout_constraintTop_toBottomOf="@id/row_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/row_3"
-        >
-        <Button
-            android:id="@+id/key_4"
-             android:text="@string/key_4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/key_5"
-            style="@style/MaterialButton"
+        android:id="@+id/constrint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:orientation="vertical">
 
-            />
-        <Button
-            android:id="@+id/key_5"
-             android:text="@string/key_5"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/key_4"
-            app:layout_constraintEnd_toStartOf="@+id/key_6"
-            style="@style/MaterialButton"
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_key_4"
+                app:layout_constraintEnd_toStartOf="@+id/l_key_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <Button
+                    android:id="@+id/key_1"
+                     style="@style/MaterialButton"
+                    android:text="@string/key_1" />
+            </azmi.radi.com.keyboard.KeyContent>
 
-            />
-        <Button
-            android:id="@+id/key_6"
-             android:text="@string/key_6"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/key_5"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/MaterialButton"
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_key_5"
+                app:layout_constraintEnd_toStartOf="@+id/l_key_3"
+                app:layout_constraintStart_toEndOf="@+id/l_key_1"
+                app:layout_constraintTop_toTopOf="parent">
 
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/row_3"
-        style="@style/constraint_layout"
-        app:layout_constraintTop_toBottomOf="@id/row_2"
-        app:layout_constraintBottom_toTopOf="@id/row_4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        >
-        <Button
-            android:id="@+id/key_7"
-             android:text="@string/key_7"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/key_8"
-            style="@style/MaterialButton"
+                <Button
+                    android:id="@+id/key_2"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_2" />
+            </azmi.radi.com.keyboard.KeyContent>
 
-            />
-        <Button
-            android:id="@+id/key_8"
-             android:text="@string/key_8"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/key_7"
-            app:layout_constraintEnd_toStartOf="@+id/key_9"
-            style="@style/MaterialButton"
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_key_6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/l_key_2"
+                app:layout_constraintTop_toTopOf="parent">
 
-            />
-        <Button
-            android:id="@+id/key_9"
-             android:text="@string/key_9"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/key_8"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/MaterialButton"
+                <Button
+                    android:id="@+id/key_3"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_3" />
+            </azmi.radi.com.keyboard.KeyContent>
 
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/row_4"
-        style="@style/constraint_layout"
-        app:layout_constraintTop_toBottomOf="@id/row_3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
-        <Button
-            android:id="@+id/key_comma"
-             android:text="@string/key_comma"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/key_0"
-            style="@style/MaterialButton"
 
-            />
-        <Button
-            android:id="@+id/key_0"
-             android:text="@string/key_0"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/key_comma"
-            app:layout_constraintEnd_toStartOf="@+id/clear"
-            style="@style/MaterialButton"
 
-            />
-        <Button
-            android:id="@+id/clear"
-             android:text="@string/key_clear"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/key_0"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/MaterialButton"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
-</merge>
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_key_7"
+                app:layout_constraintEnd_toStartOf="@+id/l_key_5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_1">
+
+                <Button
+                    android:id="@+id/key_4"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_4" />
+            </azmi.radi.com.keyboard.KeyContent>
+
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_key_8"
+                app:layout_constraintEnd_toStartOf="@+id/l_key_6"
+                app:layout_constraintStart_toEndOf="@+id/l_key_4"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_2">
+
+
+            <Button
+                    android:id="@+id/key_5"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_5"
+
+                    />
+            </azmi.radi.com.keyboard.KeyContent>
+
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_key_9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/l_key_5"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_3">
+                <Button
+                    android:id="@+id/key_6"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_6" />
+            </azmi.radi.com.keyboard.KeyContent>
+
+
+
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_key_comma"
+                app:layout_constraintEnd_toStartOf="@+id/l_key_8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_4">
+
+                <Button
+                    android:id="@+id/key_7"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_7"
+                    />
+            </azmi.radi.com.keyboard.KeyContent>
+
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_key_0"
+                app:layout_constraintEnd_toStartOf="@+id/l_key_9"
+                app:layout_constraintStart_toEndOf="@+id/l_key_7"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_5">
+
+                <Button
+                    android:id="@+id/key_8"
+                    style="@style/MaterialButton"
+
+                    android:text="@string/key_8"
+
+                    />
+            </azmi.radi.com.keyboard.KeyContent>
+
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/l_clear"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/l_key_8"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_6">
+
+                <Button
+                    android:id="@+id/key_9"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_9"
+
+                    />
+            </azmi.radi.com.keyboard.KeyContent>
+
+
+        <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_comma"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/l_key_0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_7">
+                <Button
+                    android:id="@+id/key_comma"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_comma"
+
+                    />
+            </azmi.radi.com.keyboard.KeyContent>
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_key_0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/l_clear"
+                app:layout_constraintStart_toEndOf="@+id/l_key_comma"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+                <Button
+                    android:id="@+id/key_0"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_0" />
+            </azmi.radi.com.keyboard.KeyContent>
+
+
+            <azmi.radi.com.keyboard.KeyContent
+                android:id="@+id/l_clear"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/l_key_0"
+                app:layout_constraintTop_toBottomOf="@+id/l_key_9">
+                <Button
+                    android:id="@+id/clear"
+                    style="@style/MaterialButton"
+                    android:text="@string/key_clear" />
+
+            </azmi.radi.com.keyboard.KeyContent>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+ </merge>

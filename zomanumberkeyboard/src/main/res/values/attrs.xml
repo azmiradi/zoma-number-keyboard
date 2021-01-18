@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr format="dimension" name="numberkeyboard_keyHeight">
-        <enum name="match_parent" value="0"/>
+        <enum name="match_parent" value="-1"/>
     </attr>
     <attr format="dimension" name="numberkeyboard_keyWidth">
-        <enum name="match_parent" value="0"/>
+        <enum name="match_parent" value="-1"/>
     </attr>
     <declare-styleable name="ZomaNumberKeyboard">
-         <attr name="numberkeyboard_keyWidth"/>
-        <attr name="numberkeyboard_keyHeight"/>
-
+         <attr    name="numberkeyboard_keyWidth"/>
+        <attr  name="numberkeyboard_keyHeight"/>
         <attr format="dimension" name="numberkeyboard_keyTextSize"/>
         <attr format="dimension" name="numberkeyboard_keyPadding"/>
          <attr format="reference" name="numberkeyboard_numberKeyTextColor"/>
@@ -18,6 +17,5 @@
         <attr format="reference" name="numberkeyboard_numberKeyShapeDrawable"/>
         <attr format="reference" name="keyboard_background"/>
 
-
-    </declare-styleable>
+     </declare-styleable>
 </resources>
