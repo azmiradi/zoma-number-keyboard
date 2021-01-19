@@ -16,6 +16,7 @@
         <attr format="reference" name="numberkeyboard_numberKeyRippleColor"/>
         <attr format="reference" name="numberkeyboard_numberKeyShapeDrawable"/>
         <attr format="reference" name="keyboard_background"/>
+        <attr format="dimension" name="numberkeyboard_keyMargin"/>
 
      </declare-styleable>
 </resources>

@@ -16,14 +16,14 @@
     android:id="@+id/edit"
      android:layout_gravity="center"
      />
+
  <azmi.radi.com.keyboard.ZomaNumberKeyBoard
-     android:layout_gravity="bottom"
      android:id="@+id/ZomaKeyBoard"
      android:layout_width="match_parent"
      android:layout_height="400dp"
-     app:numberkeyboard_keyTextSize="50dp"
-     app:numberkeyboard_keyHeight="50dp"
-     app:numberkeyboard_keyWidth="50dp"
-      />
+     android:layout_gravity="bottom"
+     app:numberkeyboard_keyMargin="15dp"
+
+     />
 
 </LinearLayout>

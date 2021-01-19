@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 
-public class KeyContent extends ConstraintLayout {
+public class KeyContent extends FrameLayout {
     public KeyContent(@NonNull Context context) {
         super(context);
     }
