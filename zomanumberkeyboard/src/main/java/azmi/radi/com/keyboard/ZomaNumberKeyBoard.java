@@ -145,8 +145,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         for (int i = 0; i < numericKeys.size(); i++) {
              Button key = numericKeys.get(i);
              key.setTextSize(convertSpToPixels(size));
-            System.out.println("getTextSize"+key.getTextSize());
-        }
+         }
     }
 
 
@@ -208,7 +207,6 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
             keyMargin =typedArray.getDimensionPixelSize(
                     R.styleable.ZomaNumberKeyboard_numberkeyboard_keyMargin,
                     dpToPx(DEFAULT_KEY_MARGIN));
-            System.out.println("keyMargin: "+keyMargin);
 
         } finally {
             typedArray.recycle();
