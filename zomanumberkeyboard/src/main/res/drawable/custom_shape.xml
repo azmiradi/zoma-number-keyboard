@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:color="?colorControlHighlight">
 
-<solid android:color="@drawable/clr_normal"
+<solid android:color="@color/white"
     />
 <stroke android:width="@dimen/_2sdp"
-    android:color="@drawable/clr_normal"/>
+    android:color="@color/teal_200"/>
 <corners android:topLeftRadius="@dimen/_10sdp"
     android:bottomRightRadius="@dimen/_10sdp" />
 

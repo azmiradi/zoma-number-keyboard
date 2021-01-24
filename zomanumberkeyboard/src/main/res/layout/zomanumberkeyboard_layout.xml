@@ -13,14 +13,18 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/l_key_1"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/l_key_4"
+                 android:layout_height="0dp"
+                 app:layout_constraintBottom_toTopOf="@+id/l_key_4"
                 app:layout_constraintEnd_toStartOf="@+id/l_key_2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_1"
-                     style="@style/MaterialButton"
+                      style="@style/MaterialButton"
                     android:text="@string/key_1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -34,6 +38,10 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_2"
                     style="@style/MaterialButton"
                     android:text="@string/key_2" />
@@ -49,6 +57,10 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_3"
                     style="@style/MaterialButton"
 
@@ -67,6 +79,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/l_key_1">
 
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_4"
                     style="@style/MaterialButton"
                     android:text="@string/key_4" />
@@ -83,6 +99,10 @@
 
 
             <Button
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_5"
                     style="@style/MaterialButton"
                     android:text="@string/key_5"
@@ -99,6 +119,11 @@
                 app:layout_constraintStart_toEndOf="@+id/l_key_5"
                 app:layout_constraintTop_toBottomOf="@+id/l_key_3">
                 <Button
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_6"
                     style="@style/MaterialButton"
                      android:text="@string/key_6" />
@@ -116,6 +141,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/l_key_4">
 
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_7"
                     style="@style/MaterialButton"
                     android:text="@string/key_7"
@@ -132,6 +161,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/l_key_5">
 
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_8"
                     style="@style/MaterialButton"
 
@@ -150,6 +183,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/l_key_6">
 
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_9"
                     style="@style/MaterialButton"
                     android:text="@string/key_9"
@@ -170,7 +207,10 @@
                     android:id="@+id/key_comma"
                     style="@style/MaterialButton"
                     android:text="@string/key_comma"
-
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -184,6 +224,10 @@
                 >
 
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/key_0"
                     style="@style/MaterialButton"
                      android:text="@string/key_0" />
@@ -199,6 +243,10 @@
                 app:layout_constraintStart_toEndOf="@+id/l_key_0"
                 app:layout_constraintTop_toBottomOf="@+id/l_key_9">
                 <Button
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/clear"
                     style="@style/MaterialButton"
                     android:text="@string/key_clear" />

@@ -1,11 +1,12 @@
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:color="?colorControlHighlight">
+     android:shape="rectangle">
 
-    <solid android:color="@drawable/clr_normal"
+    <solid android:color="@color/white"
         />
-    <stroke android:width="@dimen/_2sdp"
-        android:color="@drawable/clr_normal"/>
 
 </shape>
+
+
+

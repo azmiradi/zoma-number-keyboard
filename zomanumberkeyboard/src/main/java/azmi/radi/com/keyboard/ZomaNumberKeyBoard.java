@@ -278,6 +278,9 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
                 Build.VERSION_CODES.LOLLIPOP) {
             myButton.setBackgroundResource(shapeBackGround);
          }
+        else {
+            myButton.setBackgroundResource(R.drawable.normal_shape);
+        }
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
              ColorStateList colorStateListRipple = new ColorStateList(
