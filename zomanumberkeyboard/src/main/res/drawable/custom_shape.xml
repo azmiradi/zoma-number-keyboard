@@ -1,23 +1,16 @@
-<ripple
+<shape
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:color="?colorControlHighlight"
-    tools:targetApi="lollipop">
+    android:color="?colorControlHighlight">
 
-    <item>
-        <shape>
-            <solid android:color="@color/bu_color"
-                />
-            <stroke android:width="@dimen/_2sdp"
-                android:color="@color/purple_200"/>
-            <corners android:topLeftRadius="@dimen/_10sdp"
-                android:bottomRightRadius="@dimen/_10sdp" />
+<solid android:color="@drawable/clr_normal"
+    />
+<stroke android:width="@dimen/_2sdp"
+    android:color="@drawable/clr_normal"/>
+<corners android:topLeftRadius="@dimen/_10sdp"
+    android:bottomRightRadius="@dimen/_10sdp" />
 
-        </shape>
-
-</item>
-
-    </ripple>
+</shape>
 
 
 

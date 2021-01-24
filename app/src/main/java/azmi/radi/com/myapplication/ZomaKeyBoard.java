@@ -44,5 +44,5 @@ public class ZomaKeyBoard extends AppCompatActivity {
                 editText.setText("");
             }
         });
-    }
+     }
 }
