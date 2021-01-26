@@ -32,7 +32,7 @@ Add the dependency:
 
 ```gradle
 dependencies {
-    implementation 'com.github.azmiradi:zoma-number-keyboard:1.0'
+    implementation 'com.github.azmiradi:zoma-number-keyboard:2.0.8'
 }
 ```
 

@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.RippleDrawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -51,7 +52,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
    private int keyMarginTop=0,keyMarginLeft=0,keyMarginRight=0,keyMarginBottom=0,keyMargin=0;
     private final static int DEFAULT_KEY_WIDTH_DP = -1;
     private final static int DEFAULT_KEY_HEIGHT_DP = -1;
-    private final static int DEFAULT_KEY_PADDING_DP = 16;
+    private final static int DEFAULT_KEY_PADDING_DP = 0;
     private final static int DEFAULT_KEY_TEXT_SIZE_SP = 20;
     private final static int DEFAULT_KEY_MARGIN = 0;
     LayoutParams  params;
@@ -266,13 +267,19 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         setNumberKeyTextSize(numberKeyTextSize);
         setKeyBoardBackGround(keyBoardBackground);
         setKeyMargin(keyMargin,keyMargin,keyMargin,keyMargin);
-        setNumberKeyBackgroundColors(numberKeyBackgroundRipple,
-                numberKeyBackground,numberKeyShapeDrawable);
+         setNumberKeyBackgroundColors(numberKeyBackgroundRipple,numberKeyBackground,numberKeyShapeDrawable);
     }
 
 
     private void setColorsBackGround(Button myButton,int colorPressed,int backGroundColor,int shapeBackGround) {
-        myButton.setBackgroundResource(shapeBackGround);
+        if (android.os.Build.VERSION.SDK_INT >=
+                Build.VERSION_CODES.LOLLIPOP) {
+            myButton.setBackgroundResource(shapeBackGround);
+         }
+        else {
+            myButton.setBackgroundResource(R.drawable.normal_shape);
+        }
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
              ColorStateList colorStateListRipple = new ColorStateList(
                     new int[][]{{0}},
