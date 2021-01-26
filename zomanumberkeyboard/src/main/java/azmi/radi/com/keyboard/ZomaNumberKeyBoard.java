@@ -285,7 +285,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
                     colorPressed,
                     colorPressed,
                     1,Color.BLACK,0);
-            myButton.setBackground(drawable); // applying the ripple color
+             myButton.setBackground(drawable); // applying the ripple color
         }
 
         ColorStateList colorStateList = new ColorStateList(
