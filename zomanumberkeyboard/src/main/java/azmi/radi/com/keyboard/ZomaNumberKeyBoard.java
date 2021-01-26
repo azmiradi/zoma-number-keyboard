@@ -274,7 +274,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
     private void setColorsBackGround(Button myButton,int colorPressed,int backGroundColor,int shapeBackGround) {
         if (android.os.Build.VERSION.SDK_INT >=
                 Build.VERSION_CODES.LOLLIPOP) {
-            myButton.setBackgroundResource(shapeBackGround);
+            myButton.setBackgroundResource(R.drawable.normal_shape);
          }
         else {
             myButton.setBackgroundResource(R.drawable.normal_shape);
