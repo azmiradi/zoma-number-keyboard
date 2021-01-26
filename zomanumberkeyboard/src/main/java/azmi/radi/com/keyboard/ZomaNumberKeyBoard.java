@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -270,18 +272,20 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
          setNumberKeyBackgroundColors(numberKeyBackgroundRipple,numberKeyBackground,numberKeyShapeDrawable);
     }
 
-
-    private void setColorsBackGround(Button myButton,int colorPressed,int backGroundColor,int shapeBackGround) {
+    private void setColorsBackGround(Button myButton,int colorPressed,int backGroundColor,
+                                     int shapeBackGround) {
         myButton.setBackgroundResource(R.drawable.normal_shape);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
              ColorStateList colorStateListRipple = new ColorStateList(
                     new int[][]{{0}},
                     new int[]{colorPressed} // ripple color
             );
-
-            RippleDrawable rippleDrawable = (RippleDrawable) myButton.getBackground();
-            rippleDrawable.setColor(colorStateListRipple);
-            myButton.setBackground(rippleDrawable); // applying the ripple color
+            SomeDrawable drawable = new SomeDrawable(
+                    backGroundColor,
+                    colorPressed,
+                    colorPressed,
+                    1,Color.BLACK,0);
+            myButton.setBackground(drawable); // applying the ripple color
         }
 
         ColorStateList colorStateList = new ColorStateList(
