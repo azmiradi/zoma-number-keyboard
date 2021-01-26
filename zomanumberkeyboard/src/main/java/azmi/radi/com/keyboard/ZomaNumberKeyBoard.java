@@ -55,9 +55,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
     private final static int DEFAULT_KEY_TEXT_SIZE_SP = 20;
     private final static int DEFAULT_KEY_MARGIN = 0;
     LayoutParams  params;
-    public  final static int CUSTOM_SHAPE=R.drawable.custom_shape;
-    public  final static int NORMAL_SHAPE=R.drawable.normal_shape;
-    ConstraintLayout keyBoardBackGround;
+     ConstraintLayout keyBoardBackGround;
     ArrayList<Button> numericKeys;
 
     public ZomaNumberKeyBoard(@NonNull Context context) {
@@ -202,7 +200,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
                     R.color.white);
             numberKeyShapeDrawable = typedArray.getResourceId(
                     R.styleable.ZomaNumberKeyboard_numberkeyboard_numberKeyShapeDrawable,
-                    R.drawable.custom_shape);
+                    R.drawable.normal_shape);
 
             keyMargin =typedArray.getDimensionPixelSize(
                     R.styleable.ZomaNumberKeyboard_numberkeyboard_keyMargin,

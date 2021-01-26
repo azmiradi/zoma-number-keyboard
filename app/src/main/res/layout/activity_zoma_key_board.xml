@@ -19,7 +19,7 @@
  <azmi.radi.com.keyboard.ZomaNumberKeyBoard
      android:id="@+id/ZomaKeyBoard"
      android:layout_width="match_parent"
-     android:layout_height="150dp"
+     android:layout_height="500dp"
      android:layout_gravity="bottom"
 
      />
