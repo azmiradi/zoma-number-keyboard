@@ -44,6 +44,5 @@ public class ZomaKeyBoard extends AppCompatActivity {
                 editText.setText("");
             }
         });
-         zomaNumberKeyBoard.setNumberKeyBackgroundColors(R.color.bu_color,R.color.gray,0);
-     }
+      }
 }

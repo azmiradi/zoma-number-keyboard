@@ -15,6 +15,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import java.util.ArrayList;
 
@@ -57,8 +58,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
     private final static int DEFAULT_KEY_PADDING_DP = 0;
     private final static int DEFAULT_KEY_TEXT_SIZE_SP = 20;
     private final static int DEFAULT_KEY_MARGIN = 0;
-    LayoutParams  params;
-     ConstraintLayout keyBoardBackGround;
+    ConstraintLayout keyBoardBackGround;
     ArrayList<Button> numericKeys;
 
     public ZomaNumberKeyBoard(@NonNull Context context) {
@@ -115,7 +115,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
     public void setKeyMargin(int top,int left,int right,int bottom) {
         for (int i = 0; i < numericKeys.size(); i++) {
             Button key = numericKeys.get(i);
-            params=new LayoutParams(key.getLayoutParams());
+           FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(key.getLayoutParams());
             params.setMargins(left,top,right,bottom);
             key.setLayoutParams(params);
          }
@@ -269,7 +269,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         setNumberKeyTextSize(numberKeyTextSize);
         setKeyBoardBackGround(keyBoardBackground);
         setKeyMargin(keyMargin,keyMargin,keyMargin,keyMargin);
-         setNumberKeyBackgroundColors(numberKeyBackgroundRipple,numberKeyBackground,numberKeyShapeDrawable);
+        //setNumberKeyBackgroundColors(numberKeyBackgroundRipple,numberKeyBackground,numberKeyShapeDrawable);
     }
 
     private void setColorsBackGround(Button myButton,int colorPressed,int backGroundColor,
