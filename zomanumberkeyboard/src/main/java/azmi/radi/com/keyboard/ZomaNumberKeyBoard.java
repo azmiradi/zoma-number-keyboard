@@ -267,7 +267,7 @@ public class ZomaNumberKeyBoard extends ConstraintLayout {
         setKeyPadding(keyPadding);
         setNumberKeyTextColor(numberKeyTextColor);
         setNumberKeyTextSize(numberKeyTextSize);
-        setKeyBoardBackGround(keyBoardBackground);
+       // setKeyBoardBackGround(keyBoardBackground);
         setKeyMargin(keyMargin,keyMargin,keyMargin,keyMargin);
         //setNumberKeyBackgroundColors(numberKeyBackgroundRipple,numberKeyBackground,numberKeyShapeDrawable);
     }
