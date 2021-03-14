@@ -22,7 +22,6 @@
      android:layout_width="match_parent"
      android:layout_height="500dp"
      android:layout_gravity="bottom"
-     app:numberkeyboard_keyMargin="1dp"
      />
 
 </LinearLayout>

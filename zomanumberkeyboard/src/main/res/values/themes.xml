@@ -30,9 +30,9 @@
     </style>
     <style name="card_back" >
         <item name="cardBackgroundColor">@color/white</item>
-        <item name="cardCornerRadius">@dimen/_5sdp</item>
+        <item name="cardCornerRadius">2dp</item>
         <item name="cardPreventCornerOverlap">true</item>
         <item name="cardUseCompatPadding">true</item>
-        <item name="android:layout_margin">@dimen/_3sdp</item>
+        <item name="android:layout_margin">2dp</item>
      </style>
 </resources>
